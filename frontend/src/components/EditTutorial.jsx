@@ -16,7 +16,8 @@ const EditTutorial = ({ editItem, getTutorials }) => {
 
   const editTutor = async (tutor) => {
     // const BASE_URL = "http://127.0.0.1:8000/api/todo";
-    const BASE_URL = process.env.REACT_APP_API_URL;
+    const BASE_URL = '/api/todo';
+
 
     try {
       await axios.put(`${BASE_URL}/${id}/`, tutor);
