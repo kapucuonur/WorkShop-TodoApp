@@ -15,8 +15,8 @@ const EditTutorial = ({ editItem, getTutorials }) => {
   }, [oldTitle, oldDescription, oldDate]);
 
   const editTutor = async (tutor) => {
-    const BASE_URL = "http://127.0.0.1:8000/api/todo";
-
+    // const BASE_URL = "http://127.0.0.1:8000/api/todo";
+    const BASE_URL = "/"
     try {
       await axios.put(`${BASE_URL}/${id}/`, tutor);
     } catch (error) {

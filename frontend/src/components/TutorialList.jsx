@@ -7,8 +7,8 @@ import { useState } from "react";
 const TutorialList = ({ tutorials, getTutorials }) => {
   const [editItem, setEditItem] = useState("");
 
-  const BASE_URL = "http://127.0.0.1:8000/api/todo";
-
+  // const BASE_URL = "http://127.0.0.1:8000/api/todo";
+  const BASE_URL = "/"
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${BASE_URL}/${id}/`);
