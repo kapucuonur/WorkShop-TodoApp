@@ -9,8 +9,7 @@ module.exports = async () => {
 
     try {
         await connect(process.env.MONGODB, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+            
             serverSelectionTimeoutMS: 30000, // Bağlantıyı 30 saniye boyunca beklet
         });
         console.log('-- Connected to the DB --');
