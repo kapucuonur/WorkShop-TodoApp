@@ -4,7 +4,7 @@
     "scripts": {
         "start": "cd backend/node index.js",
         "build": "npm run build --prefix frontend",
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
         "backend": "cd backend && npm start",
         "frontend": "cd frontend && npm start",
         "deploy": "npm run build && npm run server" 
