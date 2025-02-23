@@ -19,7 +19,8 @@ const AddTutorial = ({ getTutorials }) => {
 
   const postTutorial = async (newTutor) => {
     // const BASE_URL = "http://127.0.0.1:8000/api/todo";
-    const BASE_URL = "/api/todo";
+    const BASE_URL = process.env.REACT_APP_API_URL;
+
     try {
       const res = await axios.post(BASE_URL, newTutor);
       console.log(res);
