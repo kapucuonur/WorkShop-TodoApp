@@ -1,12 +1,21 @@
-'use strict'
+'use strict';
 
-const { connect } = require('mongoose')
+const { connect } = require('mongoose');
 
-module.exports = () => {
+module.exports = async () => {
+    if (!process.env.MONGODB) {
+        throw new Error('MONGODB is not defined in the .env file');
+    }
 
-    if(!process.env.MONGODB) throw new Error('MONGODB is not defined in the .env file')
-
-    connect(process.env.MONGODB)
-        .then(() => console.log('-- Connected to the DB --'))
-        .catch((err) => console.log('* Failed to connect DB *', err))
-}
+    try {
+        await connect(process.env.MONGODB, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000, // Bağlantıyı 30 saniye boyunca beklet
+        });
+        console.log('-- Connected to the DB --');
+    } catch (err) {
+        console.error('* Failed to connect DB *', err);
+        process.exit(1); // Bağlantı başarısızsa uygulamayı durdur
+    }
+};

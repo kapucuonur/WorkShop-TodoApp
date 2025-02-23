@@ -4,6 +4,7 @@
 
 ## **Features**
 
+- User add to ToDo list by date
 - Users can add, edit, and delete tasks.
 - Data is persisted in a MongoDB database.
 - The frontend and backend are connected to work together.
