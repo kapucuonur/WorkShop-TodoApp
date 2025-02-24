@@ -49,7 +49,7 @@ app.use(express.json());
 // CORS sadece development ortamında açık
 const cors = require('cors');
 if (process.env.NODE_ENV === 'development') {
-    app.use(cors({ origin: 'https://workshop-todoapp.onrender.com' }));
+    app.use(cors());
 }
 
 // Database Connection

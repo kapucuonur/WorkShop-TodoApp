@@ -14,11 +14,12 @@ const TutorialList = ({ tutorials, getTutorials }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${BASE_URL}/${id}/`);
-      getTutorials();
+      getTutorials(); 
     } catch (error) {
-      console.log(error);
+      console.log(error.response || error.message); // error handling
     }
   };
+  
 
   return (
     <div className="container mt-4">
@@ -28,7 +29,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
             <th scope="col">#id</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
-            <th scope="col">Date</th> {/* ✅ Tarih sütunu eklendi */}
+            <th scope="col">Date</th> {/* ✅ date is added */}
             <th scope="col" className="text-center">Edit</th>
           </tr>
         </thead>
