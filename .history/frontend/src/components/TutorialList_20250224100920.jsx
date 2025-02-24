@@ -14,12 +14,11 @@ const TutorialList = ({ tutorials, getTutorials }) => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${BASE_URL}/${id}/`);
-      getTutorials(); 
+      getTutorials();
     } catch (error) {
-      console.log(error.response || error.message); // error handling
+      console.log(error);
     }
   };
-  
 
   return (
     <div className="container mt-4">

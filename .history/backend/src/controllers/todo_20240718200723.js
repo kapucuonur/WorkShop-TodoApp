@@ -58,13 +58,16 @@ module.exports = {
     },
 
     delete: async (req, res) => {
+
         const { deletedCount } = await Todo.deleteOne({ _id: req.params.id });
-    
-        if (!deletedCount) throw new CustomError('Something went wrong!', 404);
-    
+
+
+        if (!deletedCount) throw new CustomError('Something went wrong!', 404)
+
         res.status(204).send({
             isError: false,
-            message: "Successfully deleted" // ✅ Hata düzeltilmiş
-        });
-    }
-}    
+            data
+        })
+
+    },
+}
